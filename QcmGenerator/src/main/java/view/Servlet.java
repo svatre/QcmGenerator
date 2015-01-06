@@ -1,6 +1,8 @@
 package view;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,10 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Servlet")
 public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+    private String urlIndex;
+    
     public Servlet() {
         super();
         // TODO Auto-generated constructor stub
@@ -27,14 +27,16 @@ public class Servlet extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
+		//urlIndex = getInitParameter(urlIndex);
 	}
 
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		RequestDispatcher requestDispatcher; 
+		requestDispatcher = request.getRequestDispatcher("/WEB-INF/View/Connexion.jsp");
+		requestDispatcher.forward(request, response);
 	}
 
 	/**
