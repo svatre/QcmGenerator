@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping package="model">
+	<class name="Classe" table="classe">
+		<id
+			column="id_classe"
+			name="IdClasse"
+			type="integer"
+		>
+			<generator class="increment" />
+		</id>
+		<property
+			column="nom"
+			length="255"
+			name="Nom"
+			not-null="true"
+			type="string"
+		 />
+		<set inverse="true" name="EtudiantClasseSet">
+			<key column="id_classe" />
+			<one-to-many class="EtudiantClasse" />
+		</set>
+	</class>
+</hibernate-mapping>

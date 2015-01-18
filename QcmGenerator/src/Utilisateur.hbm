@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping package="model">
+	<class name="Utilisateur" table="utilisateur">
+		<id
+			column="id_utilisateur"
+			name="IdUtilisateur"
+			type="integer"
+		>
+			<generator class="increment" />
+		</id>
+		<property
+			column="mdp"
+			length="255"
+			name="Mdp"
+			not-null="true"
+			type="string"
+		 />
+		<property
+			column="type"
+			length="255"
+			name="Type"
+			not-null="true"
+			type="string"
+		 />
+		<property
+			column="identifiant"
+			length="255"
+			name="Identifiant"
+			not-null="true"
+			type="string"
+		 />
+
+		<set inverse="true" name="EtudiantSet">
+			<key column="id_utilisateur" />
+			<one-to-many class="Etudiant" />
+		</set>
+		<set inverse="true" name="ProfesseurSet">
+			<key column="id_utilisateur" />
+			<one-to-many class="Professeur" />
+		</set>
+		<set inverse="true" name="AdministrateurSet">
+			<key column="id_utilisateur" />
+			<one-to-many class="Administrateur" />
+		</set>
+	</class>
+</hibernate-mapping>

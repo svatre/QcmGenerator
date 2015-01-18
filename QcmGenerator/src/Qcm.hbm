@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping package="model">
+	<class name="Qcm" table="qcm">
+		<id
+			column="id_qcm"
+			name="IdQcm"
+			type="integer"
+		>
+			<generator class="increment" />
+		</id>
+		<property
+			column="date_creation"
+			length="19"
+			name="DateCreation"
+			not-null="true"
+			type="timestamp"
+		 />
+		<property
+			column="date_debut"
+			length="19"
+			name="DateDebut"
+			not-null="true"
+			type="timestamp"
+		 />
+		<property
+			column="date_fin"
+			length="19"
+			name="DateFin"
+			not-null="true"
+			type="timestamp"
+		 />
+		<property
+			column="nom"
+			length="255"
+			name="Nom"
+			not-null="true"
+			type="string"
+		 />
+
+		<many-to-one
+			class="Professeur"
+			name="IdProfesseur"
+			not-null="true"
+		>
+			<column name="id_professeur" />
+		</many-to-one>
+		<set inverse="true" name="QcmQuestionSet">
+			<key column="id_qcm" />
+			<one-to-many class="QcmQuestion" />
+		</set>
+		<set inverse="true" name="EtudiantQcmSet">
+			<key column="id_qcm" />
+			<one-to-many class="EtudiantQcm" />
+		</set>
+	</class>
+</hibernate-mapping>

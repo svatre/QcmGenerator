@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping package="model">
+	<class name="Theme" table="theme">
+		<id
+			column="id_theme"
+			name="IdTheme"
+			type="integer"
+		>
+			<generator class="increment" />
+		</id>
+		<property
+			column="nom"
+			length="255"
+			name="Nom"
+			not-null="true"
+			type="string"
+		 />
+		<set inverse="true" name="QuestionSet">
+			<key column="id_theme" />
+			<one-to-many class="Question" />
+		</set>
+	</class>
+</hibernate-mapping>

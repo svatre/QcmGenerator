@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping package="model">
+	<class name="Professeur" table="professeur">
+		<id
+			column="id_professeur"
+			name="IdProfesseur"
+			type="integer"
+		>
+			<generator class="increment" />
+		</id>
+		<property
+			column="prenom"
+			length="255"
+			name="Prenom"
+			not-null="true"
+			type="string"
+		 />
+		<property
+			column="nom"
+			length="255"
+			name="Nom"
+			not-null="true"
+			type="string"
+		 />
+
+		<many-to-one
+			class="Utilisateur"
+			name="IdUtilisateur"
+			not-null="true"
+		>
+			<column name="id_utilisateur" />
+		</many-to-one>
+		<set inverse="true" name="QuestionSet">
+			<key column="id_professeur" />
+			<one-to-many class="Question" />
+		</set>
+		<set inverse="true" name="ProfesseurMatiereSet">
+			<key column="id_professeur" />
+			<one-to-many class="ProfesseurMatiere" />
+		</set>
+		<set inverse="true" name="QcmSet">
+			<key column="id_professeur" />
+			<one-to-many class="Qcm" />
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,5 @@
+package=model
+databaseUrl=jdbc:mysql://localhost/questionnaire
+driver=com.mysql.jdbc.Driver
+username=root
+ConfigurationFile=/QcmGenerator/src/hibernate.cfg.xml
