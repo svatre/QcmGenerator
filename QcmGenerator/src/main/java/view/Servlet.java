@@ -35,7 +35,7 @@ public class Servlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher requestDispatcher; 
-		requestDispatcher = request.getRequestDispatcher("/WEB-INF/View/Connexion.jsp");
+		requestDispatcher = request.getRequestDispatcher("/WEB-INF/View/Prof_Accueil.jsp");
 		requestDispatcher.forward(request, response);
 	}
 

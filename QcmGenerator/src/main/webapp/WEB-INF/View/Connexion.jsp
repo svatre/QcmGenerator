@@ -5,19 +5,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="styles/styles.css"/>
-<link rel="stylesheet" type="text/css"
-          href="${pageContext.request.contextPath}/assets/bootstrap/2.2.2/css/bootstrap.min.css" media="all"/>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-theme.css" rel="stylesheet">
+<link href="css/index.css" rel="stylesheet">
 <title>Bienvenue à vous</title>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-offset-4 col-lg-4">
-				<h1>Connexion</h1>
+				<h1>Connexion</h1><br/>
 				<div class="input-group input-group-lg">
-					<input class="form-control" type="text" name="identifiant" placeholder="identifiant"/>
-					<input class="form-control" type="password" name="mdp" placeholder="mot de passe"/>
+					<input class="form-control margbott" type="text" name="identifiant" placeholder="identifiant"/>
+					<input class="form-control margbott" type="password" name="mdp" placeholder="mot de passe"/>
 					<input class="btn btn-primary" type="submit" value="Connecter"/>
 				</div>
 			</div>
