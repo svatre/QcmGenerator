@@ -23,31 +23,31 @@ public class QcmQuestionDaoImp implements IQcmQuestionDao {
 		HibernateUtil.closeSession();
 	}
 	
-	@Override
+	
 	public void Create(QcmQuestion qcmQuestion) {
 		// TODO Auto-generated method stub
 		_Session.persist(qcmQuestion);
 	}
 
-	@Override
+	
 	public QcmQuestion GetById(String id) {
 		// TODO Auto-generated method stub
 		return (QcmQuestion) _Session.get(QcmQuestion.class, id);
 	}
 
-	@Override
+	
 	public void Update(QcmQuestion qcmQuestion) {
 		// TODO Auto-generated method stub
 		_Session.update(qcmQuestion);
 	}
 
-	@Override
+	
 	public void Delete(QcmQuestion qcmQuestion) {
 		// TODO Auto-generated method stub
 		_Session.delete(qcmQuestion);
 	}
 
-	@Override
+	
 	public List<QcmQuestion> GetAll() {
 		List<QcmQuestion> objects = null;
         try {

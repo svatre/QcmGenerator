@@ -19,7 +19,7 @@ public class ClasseMetier implements IClasseMetier {
 		this._ClasseDao = _ClasseDao;
 	}
 
-	@Override
+	
 	public void Create(Classe classe) {
 		// TODO Auto-generated method stub
 		try {
@@ -31,7 +31,7 @@ public class ClasseMetier implements IClasseMetier {
 		
 	}
 
-	@Override
+	
 	public Classe GetById(String id) {
 		// TODO Auto-generated method stub
 		Classe classe = new Classe();
@@ -43,7 +43,7 @@ public class ClasseMetier implements IClasseMetier {
 		return classe;
 	}
 
-	@Override
+	
 	public void Update(Classe classe) {
 		// TODO Auto-generated method stub
 		try {
@@ -53,7 +53,7 @@ public class ClasseMetier implements IClasseMetier {
 		}
 	}
 
-	@Override
+	
 	public void Delete(Classe classe) {
 		// TODO Auto-generated method stub
 		try {
@@ -63,7 +63,7 @@ public class ClasseMetier implements IClasseMetier {
 		}
 	}
 
-	@Override
+	
 	public List<Classe> GetAll() {
 		// TODO Auto-generated method stub
 		List<Classe> Classes= null;

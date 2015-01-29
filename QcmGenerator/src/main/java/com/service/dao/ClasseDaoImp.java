@@ -23,31 +23,31 @@ public class ClasseDaoImp implements IClasseDao {
 		HibernateUtil.closeSession();
 	}
 	
-	@Override
+	
 	public void Create(Classe classe) {
 		// TODO Auto-generated method stub
 		_Session.persist(classe);
 	}
 
-	@Override
+	
 	public Classe GetById(String id) {
 		// TODO Auto-generated method stub
 		return (Classe) _Session.get(Classe.class, id);
 	}
 
-	@Override
+	
 	public void Update(Classe classe) {
 		// TODO Auto-generated method stub
 		_Session.update(classe);
 	}
 
-	@Override
+	
 	public void Delete(Classe classe) {
 		// TODO Auto-generated method stub
 		_Session.delete(classe);
 	}
 
-	@Override
+	
 	public List<Classe> GetAll() {
 		// TODO Auto-generated method stub
 		 List<Classe> objects = null;

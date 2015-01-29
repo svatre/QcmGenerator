@@ -20,7 +20,7 @@ public class ReponseMetier implements IReponseMetier {
 		this._ReponseDao = _ReponseDao;
 	}
 
-	@Override
+	
 	public void Create(Reponse reponse) {
 		// TODO Auto-generated method stub
 		try {
@@ -30,7 +30,7 @@ public class ReponseMetier implements IReponseMetier {
 		}
 	}
 
-	@Override
+	
 	public Reponse GetById(String id) {
 		// TODO Auto-generated method stub
 		Reponse rep = new Reponse();
@@ -42,7 +42,7 @@ public class ReponseMetier implements IReponseMetier {
 		return rep;
 	}
 
-	@Override
+	
 	public void Update(Reponse reponse) {
 		// TODO Auto-generated method stub
 		try {
@@ -52,7 +52,7 @@ public class ReponseMetier implements IReponseMetier {
 		}
 	}
 
-	@Override
+	
 	public void Delete(Reponse reponse) {
 		// TODO Auto-generated method stub
 		try {
@@ -62,7 +62,7 @@ public class ReponseMetier implements IReponseMetier {
 		}
 	}
 
-	@Override
+	
 	public List<Reponse> GetAll() {
 		// TODO Auto-generated method stub
 		List<Reponse> reponses = null;

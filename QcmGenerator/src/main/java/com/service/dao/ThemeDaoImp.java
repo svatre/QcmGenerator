@@ -22,31 +22,31 @@ public class ThemeDaoImp implements IThemeDao {
 	{
 		HibernateUtil.closeSession();
 	}
-	@Override
+	
 	public void Create(Theme theme) {
 		// TODO Auto-generated method stub
 		_Session.persist(theme);
 	}
 
-	@Override
+	
 	public Theme GetById(String id) {
 		// TODO Auto-generated method stub
 		return (Theme) _Session.get(Theme.class, id);
 	}
 
-	@Override
+	
 	public void Update(Theme theme) {
 		// TODO Auto-generated method stub
 		_Session.update(theme);
 	}
 
-	@Override
+	
 	public void Delete(Theme theme) {
 		// TODO Auto-generated method stub
 		_Session.delete(theme);
 	}
 
-	@Override
+	
 	public List<Theme> GetAll() {
 		List<Theme> objects = null;
         try {

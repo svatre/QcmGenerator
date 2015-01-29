@@ -19,7 +19,7 @@ public class EtudiantQcmMetier implements IEtudiantQcmDao {
 		this._EtudiantQcmDao = _EtudiantQcmDao;
 	}
 
-	@Override
+	
 	public void Create(EtudiantQcm etudiantQcm) {
 		// TODO Auto-generated method stub
 		try {
@@ -29,7 +29,7 @@ public class EtudiantQcmMetier implements IEtudiantQcmDao {
 		}
 	}
 
-	@Override
+	
 	public EtudiantQcm GetById(String id) {
 		// TODO Auto-generated method stub
 		EtudiantQcm etudiantQcm = new EtudiantQcm();
@@ -41,7 +41,7 @@ public class EtudiantQcmMetier implements IEtudiantQcmDao {
 		return etudiantQcm;
 	}
 
-	@Override
+	
 	public void Update(EtudiantQcm etudiantQcm) {
 		// TODO Auto-generated method stub
 		try {
@@ -52,7 +52,7 @@ public class EtudiantQcmMetier implements IEtudiantQcmDao {
 
 	}
 
-	@Override
+	
 	public void Delete(EtudiantQcm etudiantQcm) {
 		// TODO Auto-generated method stub
 		try {
@@ -62,7 +62,7 @@ public class EtudiantQcmMetier implements IEtudiantQcmDao {
 		}
 	}
 
-	@Override
+	
 	public List<EtudiantQcm> GetAll() {
 		// TODO Auto-generated method stub
 		List<EtudiantQcm> etudiantQcms =null;

@@ -21,7 +21,7 @@ public class UtilisateurMetier implements IUtilisateurMetier {
 		this._UtilisateurDao = _UtilisateurDao;
 	}
 
-	@Override
+	
 	public void Create(Utilisateur utilisateur) {
 		// TODO Auto-generated method stub
 		try {
@@ -31,7 +31,7 @@ public class UtilisateurMetier implements IUtilisateurMetier {
 		}
 	}
 
-	@Override
+	
 	public Utilisateur GetById(String id) {
 		// TODO Auto-generated method stub
 		Utilisateur utilisateur = new Utilisateur();
@@ -43,7 +43,7 @@ public class UtilisateurMetier implements IUtilisateurMetier {
 		return utilisateur;
 	}
 
-	@Override
+	
 	public void Update(Utilisateur utilisateur) {
 		// TODO Auto-generated method stub
 		try {
@@ -53,7 +53,7 @@ public class UtilisateurMetier implements IUtilisateurMetier {
 		}
 	}
 
-	@Override
+	
 	public void Delete(Utilisateur utilisateur) {
 		// TODO Auto-generated method stub
 		try {
@@ -63,7 +63,7 @@ public class UtilisateurMetier implements IUtilisateurMetier {
 		}
 	}
 
-	@Override
+	
 	public List<Utilisateur> GetAll() {
 		// TODO Auto-generated method stub
 		List<Utilisateur> utilisateurs = null;

@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Servlet")
 public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private String urlIndex;
     
     public Servlet() {
         super();
@@ -35,7 +34,7 @@ public class Servlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher requestDispatcher; 
-		requestDispatcher = request.getRequestDispatcher("/WEB-INF/View/Prof_Accueil.jsp");
+		requestDispatcher = request.getRequestDispatcher("/WEB-INF/View/CreationQcm.jsp");
 		requestDispatcher.forward(request, response);
 	}
 

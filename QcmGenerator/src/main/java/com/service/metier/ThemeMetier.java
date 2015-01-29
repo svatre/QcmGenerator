@@ -20,7 +20,7 @@ public class ThemeMetier implements IThemeMetier {
 		this._ThemeDao = _ThemeDao;
 	}
 
-	@Override
+	
 	public void Create(Theme theme) {
 		// TODO Auto-generated method stub
 		try {
@@ -30,7 +30,7 @@ public class ThemeMetier implements IThemeMetier {
 		}
 	}
 
-	@Override
+	
 	public Theme GetById(String id) {
 		// TODO Auto-generated method stub
 		Theme theme = new Theme();
@@ -42,7 +42,7 @@ public class ThemeMetier implements IThemeMetier {
 		return theme;
 	}
 
-	@Override
+	
 	public void Update(Theme theme) {
 		// TODO Auto-generated method stub
 		try {
@@ -52,7 +52,7 @@ public class ThemeMetier implements IThemeMetier {
 		}
 	}
 
-	@Override
+	
 	public void Delete(Theme theme) {
 		// TODO Auto-generated method stub
 		try {
@@ -62,7 +62,7 @@ public class ThemeMetier implements IThemeMetier {
 		}
 	}
 
-	@Override
+	
 	public List<Theme> GetAll() {
 		// TODO Auto-generated method stub
 		List<Theme> themes = null;

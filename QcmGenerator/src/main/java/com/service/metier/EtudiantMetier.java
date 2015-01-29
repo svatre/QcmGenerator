@@ -20,7 +20,7 @@ public class EtudiantMetier implements IEtudiantMetier {
 		this._EtudiantDao = _EtudiantDao;
 	}
 
-	@Override
+	
 	public void Create(Etudiant etudiant) {
 		// TODO Auto-generated method stub
 		try {
@@ -31,7 +31,7 @@ public class EtudiantMetier implements IEtudiantMetier {
 
 	}
 
-	@Override
+	
 	public Etudiant GetById(String id) {
 		// TODO Auto-generated method stub
 		Etudiant etudiant = new Etudiant();
@@ -43,7 +43,7 @@ public class EtudiantMetier implements IEtudiantMetier {
 		return etudiant;
 	}
 
-	@Override
+	
 	public void Update(Etudiant etudiant) {
 		// TODO Auto-generated method stub
 		try {
@@ -53,7 +53,7 @@ public class EtudiantMetier implements IEtudiantMetier {
 		}
 	}
 
-	@Override
+	
 	public void Delete(Etudiant etudiant) {
 		// TODO Auto-generated method stub
 		try {
@@ -63,7 +63,7 @@ public class EtudiantMetier implements IEtudiantMetier {
 		}
 	}
 
-	@Override
+	
 	public List<Etudiant> GetAll() {
 		// TODO Auto-generated method stub
 		List<Etudiant> etudiants = null;

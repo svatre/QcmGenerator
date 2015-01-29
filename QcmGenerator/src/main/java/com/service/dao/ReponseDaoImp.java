@@ -22,31 +22,31 @@ public class ReponseDaoImp implements IReponseDao {
 	{
 		HibernateUtil.closeSession();
 	}
-	@Override
+	
 	public void Create(Reponse reponse) {
 		// TODO Auto-generated method stub
 		_Session.persist(reponse);
 	}
 
-	@Override
+	
 	public Reponse GetById(String id) {
 		// TODO Auto-generated method stub
 		return (Reponse) _Session.get(Reponse.class, id);
 	}
 
-	@Override
+	
 	public void Update(Reponse reponse) {
 		// TODO Auto-generated method stub
 		_Session.update(reponse);
 	}
 
-	@Override
+	
 	public void Delete(Reponse reponse) {
 		// TODO Auto-generated method stub
 		_Session.delete(reponse);
 	}
 
-	@Override
+	
 	public List<Reponse> GetAll() {
 		List<Reponse> objects = null;
         try {

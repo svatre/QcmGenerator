@@ -6,7 +6,7 @@
 	margin-top: 20px !important;
 }
 
-input, select {
+input, select, textarea {
 	border-radius: 5px !important;
 }
 
@@ -35,4 +35,43 @@ white-space: nowrap;
 .bordertop {
 	border-top: 1px solid grey;
 	padding-top: 20px;
+}
+
+.halfwidth {
+	width: 48%;
+	margin-left: 10px;
+}
+
+.alignR {
+	position: absolute;
+	right: 20px;
+}
+
+.vert {
+	color: green;
+	font-weight: bold;
+}
+
+.noBold {
+	font-weight: normal;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.rouge {
+	color: red;
+}
+
+.fixedR {
+	position: fixed;
+	right: 10px;
+}
+
+.total {
+	font-weight: bold;
+	color: blue;
+	font-size: 16px;
+	text-align: center;
 }
