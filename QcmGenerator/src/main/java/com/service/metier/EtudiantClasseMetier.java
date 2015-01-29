@@ -2,10 +2,12 @@ package com.service.metier;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.model.EtudiantClasse;
 import com.service.interfaces.dao.IEtudiantClasseDao;
 import com.service.interfaces.metier.IEtudiantClasseMetier;
-
+@Service("etudiantClasseMetier")
 public class EtudiantClasseMetier implements IEtudiantClasseMetier {
 
 	private IEtudiantClasseDao _EtudiantClasseDao;

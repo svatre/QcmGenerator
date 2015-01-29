@@ -2,10 +2,12 @@ package com.service.metier;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.model.Matiere;
 import com.service.interfaces.dao.IMatiereDao;
 import com.service.interfaces.metier.IMatiereMetier;
-
+@Service("matiereMetier")
 public class MatiereMetier implements IMatiereMetier {
 
 	private IMatiereDao _MatiereDao;

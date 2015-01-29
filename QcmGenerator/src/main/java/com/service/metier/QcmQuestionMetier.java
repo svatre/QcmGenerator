@@ -2,10 +2,12 @@ package com.service.metier;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.model.QcmQuestion;
 import com.service.interfaces.dao.IQcmQuestionDao;
 import com.service.interfaces.metier.IQcmQuestionMetier;
-
+@Service("qcmQuestionMetier")
 public class QcmQuestionMetier implements IQcmQuestionMetier {
 
 	private IQcmQuestionDao _QcmQuestionDao;

@@ -2,10 +2,12 @@ package com.service.metier;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.model.Theme;
 import com.service.interfaces.dao.IThemeDao;
 import com.service.interfaces.metier.IThemeMetier;
-
+@Service("themeMetier")
 public class ThemeMetier implements IThemeMetier {
 
 	private IThemeDao _ThemeDao;
