@@ -23,32 +23,32 @@ public class EtudiantClasseDaoImp implements IEtudiantClasseDao {
 		HibernateUtil.closeSession();
 	}
 	
-	@Override
+	
 	public void Create(EtudiantClasse etudiantClasse) {
 		// TODO Auto-generated method stub
 		_Session.persist(etudiantClasse);
 	}
 
-	@Override
+	
 	public EtudiantClasse GetById(String id) {
 		// TODO Auto-generated method stub
 		return (EtudiantClasse) _Session.get(EtudiantClasse.class, id);
 	}
 
-	@Override
+	
 	public void Update(EtudiantClasse etudiantClasse) {
 		// TODO Auto-generated method stub
 		_Session.update(etudiantClasse);
 
 	}
 
-	@Override
+	
 	public void Delete(EtudiantClasse etudiantClasse) {
 		// TODO Auto-generated method stub
 		_Session.delete(etudiantClasse);
 	}
 
-	@Override
+	
 	public List<EtudiantClasse> GetAll() {
 		 List<EtudiantClasse> objects = null;
 	        try {

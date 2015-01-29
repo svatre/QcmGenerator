@@ -23,31 +23,31 @@ public class UtilisateurDaoImp implements IUtilisateurDao {
 		HibernateUtil.closeSession();
 	}
 	
-	@Override
+	
 	public void Create(Utilisateur utilisateur) {
 		// TODO Auto-generated method stub
 		_Session.persist(utilisateur);
 	}
 
-	@Override
+	
 	public Utilisateur GetById(String id) {
 		// TODO Auto-generated method stub
 		return (Utilisateur) _Session.get(Utilisateur.class, id);
 	}
 
-	@Override
+	
 	public void Update(Utilisateur utilisateur) {
 		// TODO Auto-generated method stub
 		_Session.update(utilisateur);
 	}
 
-	@Override
+	
 	public void Delete(Utilisateur utilisateur) {
 		// TODO Auto-generated method stub
 		_Session.delete(utilisateur);
 	}
 
-	@Override
+	
 	public List<Utilisateur> GetAll() {
 		List<Utilisateur> objects = null;
         try {

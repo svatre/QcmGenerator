@@ -24,7 +24,7 @@ public class AdministrateurDaoImp implements IAdministrateurDao {
 		HibernateUtil.closeSession();
 	}
 
-	@Override
+	
 	public void Create(Administrateur admin) {
 		// TODO Auto-generated method stub
 		try {
@@ -39,7 +39,7 @@ public class AdministrateurDaoImp implements IAdministrateurDao {
 		
 	}
 
-	@Override
+	
 	public Administrateur GetById(String id) {
 		// TODO Auto-generated method stub
 		Administrateur admin = null;
@@ -56,7 +56,7 @@ public class AdministrateurDaoImp implements IAdministrateurDao {
 				
 	}
 
-	@Override
+	
 	public void Update(Administrateur admin) {
 		// TODO Auto-generated method stub
 		try {
@@ -71,7 +71,7 @@ public class AdministrateurDaoImp implements IAdministrateurDao {
 		
 	}
 
-	@Override
+	
 	public void Delete(Administrateur admin) {
 		// TODO Auto-generated method stub
 		try {
@@ -86,7 +86,7 @@ public class AdministrateurDaoImp implements IAdministrateurDao {
 		
 	}
 
-	@Override
+	
 	public List<Administrateur> GetAll() {
 		 List<Administrateur> objects = null;
 	        try {

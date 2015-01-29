@@ -17,7 +17,7 @@ public class EtudiantClasseMetier implements IEtudiantClasseMetier {
 		this._EtudiantClasseDao = _EtudiantClasseDao;
 	}
 
-	@Override
+	
 	public void Create(EtudiantClasse etudiantClasse) {
 		// TODO Auto-generated method stub
 		try {
@@ -27,7 +27,7 @@ public class EtudiantClasseMetier implements IEtudiantClasseMetier {
 		}
 	}
 
-	@Override
+	
 	public EtudiantClasse GetById(String id) {
 		// TODO Auto-generated method stub
 		EtudiantClasse etudiantClasse = new EtudiantClasse();
@@ -40,7 +40,7 @@ public class EtudiantClasseMetier implements IEtudiantClasseMetier {
 		return etudiantClasse;
 	}
 
-	@Override
+	
 	public void Update(EtudiantClasse etudiantClasse) {
 		// TODO Auto-generated method stub
 		try {
@@ -50,13 +50,13 @@ public class EtudiantClasseMetier implements IEtudiantClasseMetier {
 		}
 	}
 
-	@Override
+	
 	public void Delete(EtudiantClasse etudiantClasse) {
 		// TODO Auto-generated method stub
 		_EtudiantClasseDao.Delete(etudiantClasse);
 	}
 
-	@Override
+	
 	public List<EtudiantClasse> GetAll() {
 		List<EtudiantClasse> etudiantClasse = null;
 		try {

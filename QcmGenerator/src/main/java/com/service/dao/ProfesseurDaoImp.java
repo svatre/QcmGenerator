@@ -22,31 +22,31 @@ public class ProfesseurDaoImp implements IProfesseurDao {
 	{
 		HibernateUtil.closeSession();
 	}
-	@Override
+	
 	public void Create(Professeur prof) {
 		// TODO Auto-generated method stub
 		_Session.persist(prof);
 	}
 
-	@Override
+	
 	public Professeur GetById(String id) {
 		// TODO Auto-generated method stub
 		return (Professeur) _Session.get(Professeur.class, id);
 	}
 
-	@Override
+	
 	public void Update(Professeur prof) {
 		// TODO Auto-generated method stub
 		_Session.update(prof);
 	}
 
-	@Override
+	
 	public void Delete(Professeur prof) {
 		// TODO Auto-generated method stub
 		_Session.delete(prof);
 	}
 
-	@Override
+	
 	public List<Professeur> GetAll() {
 		List<Professeur> objects = null;
         try {

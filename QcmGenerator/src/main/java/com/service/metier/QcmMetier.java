@@ -18,7 +18,7 @@ public class QcmMetier implements IQcmMetier {
 		this._QcmDao = _QcmDao;
 	}
 
-	@Override
+	
 	public void Create(Qcm qcm) {
 		// TODO Auto-generated method stub
 		try {
@@ -29,7 +29,7 @@ public class QcmMetier implements IQcmMetier {
 
 	}
 
-	@Override
+	
 	public Qcm GetById(String id) {
 		// TODO Auto-generated method stub
 		Qcm qcm = new Qcm();
@@ -41,7 +41,7 @@ public class QcmMetier implements IQcmMetier {
 		return qcm;
 	}
 
-	@Override
+	
 	public void Update(Qcm qcm) {
 		// TODO Auto-generated method stub
 		try {
@@ -51,7 +51,7 @@ public class QcmMetier implements IQcmMetier {
 		}
 	}
 
-	@Override
+	
 	public void Delete(Qcm qcm) {
 		// TODO Auto-generated method stub
 		try {
@@ -61,7 +61,7 @@ public class QcmMetier implements IQcmMetier {
 		}
 	}
 
-	@Override
+	
 	public List<Qcm> GetAll() {
 		// TODO Auto-generated method stub
 		List<Qcm> qcm = null;

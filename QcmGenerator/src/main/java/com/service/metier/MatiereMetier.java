@@ -18,7 +18,7 @@ public class MatiereMetier implements IMatiereMetier {
 		this._MatiereDao = _MatiereDao;
 	}
 
-	@Override
+	
 	public void Create(Matiere matiere) {
 		// TODO Auto-generated method stub
 		try {
@@ -28,7 +28,7 @@ public class MatiereMetier implements IMatiereMetier {
 		}
 	}
 
-	@Override
+	
 	public Matiere GetById(String id) {
 		// TODO Auto-generated method stub
 		Matiere matiere = new Matiere();
@@ -40,7 +40,7 @@ public class MatiereMetier implements IMatiereMetier {
 		return matiere;
 	}
 
-	@Override
+	
 	public void Update(Matiere matiere) {
 		// TODO Auto-generated method stub
 		try {
@@ -50,7 +50,7 @@ public class MatiereMetier implements IMatiereMetier {
 		}
 	}
 
-	@Override
+	
 	public void Delete(Matiere matiere) {
 		// TODO Auto-generated method stub
 		try {
@@ -60,7 +60,7 @@ public class MatiereMetier implements IMatiereMetier {
 		}
 	}
 
-	@Override
+	
 	public List<Matiere> GetAll() {
 		// TODO Auto-generated method stub
 		List<Matiere> matieres = null;

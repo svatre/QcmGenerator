@@ -23,31 +23,31 @@ public class MatiereDaoImp implements IMatiereDao {
 	{
 		HibernateUtil.closeSession();
 	}
-	@Override
+	
 	public void Create(Matiere matiere) {
 		// TODO Auto-generated method stub
 		_Session.persist(matiere);
 	}
 
-	@Override
+	
 	public Matiere GetById(String id) {
 		// TODO Auto-generated method stub
 		return (Matiere) _Session.get(Matiere.class, id);
 	}
 
-	@Override
+	
 	public void Update(Matiere matiere) {
 		// TODO Auto-generated method stub
 		_Session.update(matiere);
 	}
 
-	@Override
+	
 	public void Delete(Matiere matiere) {
 		// TODO Auto-generated method stub
 		_Session.delete(matiere);
 	}
 
-	@Override
+	
 	public List<Matiere> GetAll() {
 		List<Matiere> objects = null;
         try {

@@ -18,7 +18,7 @@ public class QuestionMetier implements IQuestionMetier {
 		this._QuestionDao = _QuestionDao;
 	}
 
-	@Override
+	
 	public void Create(Question question) {
 		// TODO Auto-generated method stub
 		try {
@@ -28,7 +28,7 @@ public class QuestionMetier implements IQuestionMetier {
 		}
 	}
 
-	@Override
+	
 	public Question GetById(String id) {
 		// TODO Auto-generated method stub
 		Question question = new Question();
@@ -40,7 +40,7 @@ public class QuestionMetier implements IQuestionMetier {
 		return question;
 	}
 
-	@Override
+	
 	public void Update(Question question) {
 		// TODO Auto-generated method stub
 		try {
@@ -50,7 +50,7 @@ public class QuestionMetier implements IQuestionMetier {
 		}
 	}
 
-	@Override
+	
 	public void Delete(Question question) {
 		// TODO Auto-generated method stub
 		try {
@@ -60,7 +60,7 @@ public class QuestionMetier implements IQuestionMetier {
 		}
 	}
 
-	@Override
+	
 	public List<Question> GetAll() {
 		// TODO Auto-generated method stub
 		List<Question> questions = null;

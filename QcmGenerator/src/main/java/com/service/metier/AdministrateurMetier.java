@@ -18,7 +18,7 @@ public class AdministrateurMetier implements IAdministrateurMetier {
 		this._AdministrateurDao = _AdministrateurDao;
 	}
 
-	@Override
+	
 	public void Create(Administrateur admin) {
 		// TODO Auto-generated method stub
 		try 
@@ -31,7 +31,7 @@ public class AdministrateurMetier implements IAdministrateurMetier {
 		
 	}
 
-	@Override
+	
 	public Administrateur GetById(String id) {
 		Administrateur admin = new Administrateur();
 		// TODO Auto-generated method stub
@@ -44,7 +44,7 @@ public class AdministrateurMetier implements IAdministrateurMetier {
 		return admin;
 	}
 
-	@Override
+	
 	public void Update(Administrateur admin) {
 		// TODO Auto-generated method stub
 		try 
@@ -55,7 +55,7 @@ public class AdministrateurMetier implements IAdministrateurMetier {
 		}
 	}
 
-	@Override
+	
 	public void Delete(Administrateur admin) {
 		// TODO Auto-generated method stub
 		try 
@@ -66,7 +66,7 @@ public class AdministrateurMetier implements IAdministrateurMetier {
 		}
 	}
 
-	@Override
+	
 	public List<Administrateur> GetAll() {
 		// TODO Auto-generated method stub
 		List<Administrateur> admins = null;

@@ -22,31 +22,31 @@ public class QcmDaoImp implements IQcmDao {
 	{
 		HibernateUtil.closeSession();
 	}
-	@Override
+	
 	public void Create(Qcm qcm) {
 		// TODO Auto-generated method stub
 		_Session.persist(qcm);
 	}
 
-	@Override
+	
 	public Qcm GetById(String id) {
 		// TODO Auto-generated method stub
 		return (Qcm) _Session.get(Qcm.class, id);
 	}
 
-	@Override
+	
 	public void Update(Qcm qcm) {
 		// TODO Auto-generated method stub
 		_Session.update(qcm);
 	}
 
-	@Override
+	
 	public void Delete(Qcm qcm) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
+	
 	public List<Qcm> GetAll() {
 		List<Qcm> objects = null;
         try {

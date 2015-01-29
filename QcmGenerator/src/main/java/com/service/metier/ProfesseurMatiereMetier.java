@@ -18,7 +18,7 @@ public class ProfesseurMatiereMetier implements IProfesseurMatiereMetier {
 		this._ProfesseurMatiereDao = _ProfesseurMatiereDao;
 	}
 
-	@Override
+	
 	public void Create(ProfesseurMatiere profMatiere) {
 		// TODO Auto-generated method stub
 		try {
@@ -28,7 +28,7 @@ public class ProfesseurMatiereMetier implements IProfesseurMatiereMetier {
 		}
 	}
 
-	@Override
+	
 	public ProfesseurMatiere GetById(String id) {
 		// TODO Auto-generated method stub
 		ProfesseurMatiere profMatiere = new ProfesseurMatiere();
@@ -40,7 +40,7 @@ public class ProfesseurMatiereMetier implements IProfesseurMatiereMetier {
 		return profMatiere;
 	}
 
-	@Override
+	
 	public void Update(ProfesseurMatiere profMatiere) {
 		// TODO Auto-generated method stub
 		try {
@@ -51,7 +51,7 @@ public class ProfesseurMatiereMetier implements IProfesseurMatiereMetier {
 
 	}
 
-	@Override
+	
 	public void Delete(ProfesseurMatiere profMatiere) {
 		// TODO Auto-generated method stub
 		try {
@@ -61,7 +61,7 @@ public class ProfesseurMatiereMetier implements IProfesseurMatiereMetier {
 		}
 	}
 
-	@Override
+	
 	public List<ProfesseurMatiere> GetAll() {
 		// TODO Auto-generated method stub
 		List<ProfesseurMatiere> profMatieres = null;

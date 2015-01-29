@@ -23,31 +23,31 @@ public class EtudiantQcmDaoImp implements IEtudiantQcmDao {
 	{
 		HibernateUtil.closeSession();
 	}
-	@Override
+	
 	public void Create(EtudiantQcm etudiantQcm) {
 		// TODO Auto-generated method stub
 		_Session.persist(etudiantQcm);
 	}
 
-	@Override
+	
 	public EtudiantQcm GetById(String id) {
 		// TODO Auto-generated method stub
 		return (EtudiantQcm) _Session.get(EtudiantQcm.class, id);
 	}
 
-	@Override
+	
 	public void Update(EtudiantQcm etudiantQcm) {
 		// TODO Auto-generated method stub
 		_Session.update(etudiantQcm);
 	}
 
-	@Override
+	
 	public void Delete(EtudiantQcm etudiantQcm) {
 		// TODO Auto-generated method stub
 		_Session.delete(etudiantQcm);
 	}
 
-	@Override
+	
 	public List<EtudiantQcm> GetAll() {
 		List<EtudiantQcm> objects = null;
         try {

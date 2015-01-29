@@ -22,31 +22,31 @@ public class QuestionDaoImp implements IQuestionDao {
 	{
 		HibernateUtil.closeSession();
 	}
-	@Override
+	
 	public void Create(Question question) {
 		// TODO Auto-generated method stub
 		_Session.persist(question);
 	}
 
-	@Override
+	
 	public Question GetById(String id) {
 		// TODO Auto-generated method stub
 		return (Question) _Session.get(Question.class, id);
 	}
 
-	@Override
+	
 	public void Update(Question question) {
 		// TODO Auto-generated method stub
 		_Session.update(question);
 	}
 
-	@Override
+	
 	public void Delete(Question question) {
 		// TODO Auto-generated method stub
 		_Session.delete(question);
 	}
 
-	@Override
+	
 	public List<Question> GetAll() {
 		List<Question> objects = null;
         try {
