@@ -47,10 +47,47 @@
 				</table>
 			</div>
 			<p class="total">4 / 20</p>
-			<button type="button" class="btn btn-sm btn-warning" style="margin-top:30px; position:fixed; right:12%;">
-				Associer une classe</button> 
+			<a href="#" class="btn btn-sm btn-warning"
+			   data-toggle="modal"
+			   data-target="#basicModal"
+			   style="margin-top:30px; position:fixed; right:12%;">Associer une classe</a>
 		</div>
 	</div>
 </div>
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h4 class="modal-title" id="myModalLabel">Associer une classe</h4>
+            </div>
+            <div class="modal-body">
+				<div class="table-responsive">
+				    <table class="table table-bordered table-hover">
+				          <thead>
+				            <tr>
+				              <th>Nom</th>
+				            </tr>
+				          </thead>
+				          <tbody>
+				            <tr>
+				              <td><input id="id_classe" type="checkbox"/> Expert2 Développement</td>
+				            </tr>
+				            <tr>
+				              <td><input id="id_classe" type="checkbox"/> Expert1 Développement</td>
+				            </tr>
+				          </tbody>
+				    </table>
+				 </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                <button type="button" class="btn btn-primary">Sauvegarder</button>
+        </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
