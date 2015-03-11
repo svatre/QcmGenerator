@@ -7,6 +7,34 @@
   <servlet>
   	<servlet-name>Servlet</servlet-name>
   	<servlet-class>com.view.Servlet</servlet-class>
+  	<init-param>
+  		<param-name>urlConnexion</param-name>
+  		<param-value>/WEB-INF/View/Connexion.jsp</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>urlCreationQcm</param-name>
+  		<param-value>/WEB-INF/View/CreationQcm.jsp</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>urlCreationQuestion</param-name>
+  		<param-value>/WEB-INF/View/CreationQuestion.jsp</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>urlEleveAccueil</param-name>
+  		<param-value>/WEB-INF/View/Eleve_Accueil.jsp</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>urlProfAccueil</param-name>
+  		<param-value>/WEB-INF/View/Prof_Accueil.jsp</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>urlQuestions</param-name>
+  		<param-value>/WEB-INF/View/Questions.jsp</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>urlStatsQcm</param-name>
+  		<param-value>/WEB-INF/View/Stats_Qcm.jsp</param-value>
+  	</init-param>
   </servlet>
   <servlet-mapping>
   	<servlet-name>Servlet</servlet-name>
