@@ -2,7 +2,6 @@ package com.model.base;
 
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
-
 import com.model.dao.QuestionDAO;
 
 /**
@@ -25,7 +24,7 @@ public abstract class BaseQuestionDAO extends com.model.dao._RootDAO {
 	}
 
 	/**
-	 * model.dao._RootDAO _RootDAO.getReferenceClass()
+	 * com.model.dao._RootDAO _RootDAO.getReferenceClass()
 	 */
 	public Class getReferenceClass () {
 		return com.model.Question.class;

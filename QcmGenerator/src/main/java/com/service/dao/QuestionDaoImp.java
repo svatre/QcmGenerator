@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import com.model.HibernateUtil;
 import com.model.Question;
@@ -11,12 +12,16 @@ import com.service.interfaces.dao.IQuestionDao;
 
 public class QuestionDaoImp implements IQuestionDao {
 
-	private Session _Session;
+	private SessionFactory sessionFactory;	
 	
 	@SuppressWarnings("unused")
-	private Session get_Session() {
-		return HibernateUtil.currentSession();
+	private SessionFactory getSessionFactory() {
+		return sessionFactory;
 	}
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+		}
 	
 	public void CloseSession()
 	{
@@ -25,32 +30,35 @@ public class QuestionDaoImp implements IQuestionDao {
 	
 	public void Create(Question question) {
 		// TODO Auto-generated method stub
-		_Session.persist(question);
+		Session s = HibernateUtil.currentSession(sessionFactory);
+		s.save(question);
+		s.beginTransaction().commit();
+		s.close();
 	}
 
 	
 	public Question GetById(String id) {
 		// TODO Auto-generated method stub
-		return (Question) _Session.get(Question.class, id);
+		return (Question) sessionFactory.getCurrentSession().get(Question.class, id);
 	}
 
 	
 	public void Update(Question question) {
 		// TODO Auto-generated method stub
-		_Session.update(question);
+		sessionFactory.getCurrentSession().update(question);
 	}
 
 	
 	public void Delete(Question question) {
 		// TODO Auto-generated method stub
-		_Session.delete(question);
+		sessionFactory.getCurrentSession().delete(question);
 	}
 
 	
 	public List<Question> GetAll() {
 		List<Question> objects = null;
         try {
-            Query query = _Session.createQuery("from " + Question.class.getName());
+            Query query = sessionFactory.getCurrentSession().createQuery("from " + Question.class.getName());
             objects = query.list();
         } catch (Exception e) {
             

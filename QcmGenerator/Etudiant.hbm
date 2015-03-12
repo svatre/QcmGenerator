@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-mapping package="com.model">
+	<class name="Etudiant" table="etudiant">
+		<id
+			column="id_etudiant"
+			name="IdEtudiant"
+			type="integer"
+		>
+			<generator class="increment" />
+		</id>
+		<property
+			column="prenom"
+			length="255"
+			name="Prenom"
+			not-null="true"
+			type="string"
+		 />
+		<property
+			column="nom"
+			length="255"
+			name="Nom"
+			not-null="true"
+			type="string"
+		 />
+
+		<many-to-one
+			class="Utilisateur"
+			name="IdUtilisateur"
+			not-null="true"
+		>
+			<column name="id_utilisateur" />
+		</many-to-one>
+		<set inverse="true" name="EtudiantQcmSet">
+			<key column="id_etudiant" />
+			<one-to-many class="EtudiantQcm" />
+		</set>
+		<set inverse="true" name="EtudiantClasseSet">
+			<key column="id_etudiant" />
+			<one-to-many class="EtudiantClasse" />
+		</set>
+	</class>
+</hibernate-mapping>

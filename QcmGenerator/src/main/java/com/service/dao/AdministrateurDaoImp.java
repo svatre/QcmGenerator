@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import com.model.Administrateur;
 import com.model.HibernateUtil;
@@ -11,13 +12,16 @@ import com.service.interfaces.dao.IAdministrateurDao;
 
 public class AdministrateurDaoImp implements IAdministrateurDao {
 
-	private Session _Session;
-	
+private SessionFactory sessionFactory;	
 	
 	@SuppressWarnings("unused")
-	private Session get_Session() {
-		return HibernateUtil.currentSession();
+	private SessionFactory getSessionFactory() {
+		return sessionFactory;
 	}
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+		}
 	
 	public void CloseSession()
 	{
@@ -28,7 +32,10 @@ public class AdministrateurDaoImp implements IAdministrateurDao {
 	public void Create(Administrateur admin) {
 		// TODO Auto-generated method stub
 		try {
-			_Session.persist(admin);
+			Session s = HibernateUtil.currentSession(sessionFactory);
+			s.save(admin);
+			s.beginTransaction().commit();
+			s.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -44,7 +51,7 @@ public class AdministrateurDaoImp implements IAdministrateurDao {
 		// TODO Auto-generated method stub
 		Administrateur admin = null;
 		try {
-			admin = (Administrateur) _Session.get(Administrateur.class, id);
+			admin = (Administrateur) sessionFactory.getCurrentSession().get(Administrateur.class, id);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -60,7 +67,7 @@ public class AdministrateurDaoImp implements IAdministrateurDao {
 	public void Update(Administrateur admin) {
 		// TODO Auto-generated method stub
 		try {
-			_Session.update(admin);
+			sessionFactory.getCurrentSession().update(admin);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -75,7 +82,7 @@ public class AdministrateurDaoImp implements IAdministrateurDao {
 	public void Delete(Administrateur admin) {
 		// TODO Auto-generated method stub
 		try {
-			_Session.delete(admin);
+			sessionFactory.getCurrentSession().delete(admin);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -90,7 +97,7 @@ public class AdministrateurDaoImp implements IAdministrateurDao {
 	public List<Administrateur> GetAll() {
 		 List<Administrateur> objects = null;
 	        try {
-	            Query query = _Session.createQuery("from " + Administrateur.class.getName());
+	            Query query = sessionFactory.getCurrentSession().createQuery("from " + Administrateur.class.getName());
 	            objects = query.list();
 	        } catch (Exception e) {
 	            

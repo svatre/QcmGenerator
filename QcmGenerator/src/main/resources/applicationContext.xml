@@ -18,6 +18,87 @@
     <property name="username" value="root" />
     <property name="password" value="root" />
   </bean>
+<bean id="utilisateurMetier" class="com.service.metier.UtilisateurMetier">
+	<property name="_UtilisateurDao" ref="utilisateurDao" />
+</bean>
+<bean id="administrateurMetier" class="com.service.metier.AdministrateurMetier">
+	<property name="_AdministrateurDao" ref="administrateurDao" />
+</bean>
+<bean id="classeMetier" class="com.service.metier.ClasseMetier">
+	<property name="_ClasseDao" ref="classeDao" />
+</bean>
+<bean id="etudiantClasseMetier" class="com.service.metier.EtudiantClasseMetier">
+	<property name="_EtudiantClasseDao" ref="etudiantClasseDao" />
+</bean>
+<bean id="etudiantMetier" class="com.service.metier.EtudiantMetier">
+	<property name="_EtudiantDao" ref="etudiantDao" />
+</bean>
+<bean id="etudiantQcmMetier" class="com.service.metier.EtudiantQcmMetier">
+	<property name="_EtudiantQcmDao" ref="etudiantQcmDao" />
+</bean>
+<bean id="matiereMetier" class="com.service.metier.MatiereMetier">
+	<property name="_MatiereDao" ref="matiereDao" />
+</bean>
+<bean id="professeurMetier" class="com.service.metier.ProfesseurMetier">
+	<property name="_ProfesseurDao" ref="professeurMetierDao" />
+</bean>
+<bean id="professeuMatiereMetier" class="com.service.metier.ProfesseurMatiereMetier">
+	<property name="_ProfesseurMatiereDao" ref="professeurMatiereDao" />
+</bean>
+<bean id="qcmMetier" class="com.service.metier.QcmMetier">
+	<property name="_QcmDao" ref="qcmDao" />
+</bean>
+<bean id="qcmQuestionMetier" class="com.service.metier.QcmQuestionMetier">
+	<property name="_QcmQuestionDao" ref="qcmQuestionDao" />
+</bean>
+<bean id="questionMetier" class="com.service.metier.QuestionMetier">
+	<property name="_QuestionDao" ref="questionMetierDao" />
+</bean>
+<bean id="reponseMetier" class="com.service.metier.ReponseMetier">
+	<property name="_ReponseDao" ref="reponseDao" />
+</bean>
+<bean id="themeMetier" class="com.service.metier.ThemeMetier">
+	<property name="_ThemeDao" ref="themeDao" />
+</bean>
+
+ 
+<bean id="administrateurDao" class="com.service.dao.AdministrateurDaoImp">
+	<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+<bean id="classeDao" class="com.service.dao.ClasseDaoImp">
+	<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+<bean id="etudiantDao" class="com.service.dao.EtudiantDaoImp">
+	<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+<bean id="etudiantClasseDao" class="com.service.dao.EtudiantClasseDaoImp">
+	<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+<bean id="matiereDao" class="com.service.dao.MatiereDaoImp">
+	<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+<bean id="professeurDao" class="com.service.dao.ProfesseurDaoImp">
+	<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+<bean id="professeurMatiereDao" class="com.service.dao.ProfesseurMatiereDaoImp">
+	<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+<bean id="qcmDao" class="com.service.dao.QcmDaoImp">
+	<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+<bean id="qcmQuestionDao" class="com.service.dao.QcmQuestionDaoImp">
+	<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+<bean id="questionDao" class="com.service.dao.QuestionDaoImp">
+	<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+<bean id="reponseDao" class="com.service.dao.ReponseDaoImp">
+	<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+<bean id="themeDao" class="com.service.dao.ThemeDaoImp">
+	<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+
 
   <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
     <property name="dataSource" ref="dataSource"></property>

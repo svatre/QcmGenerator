@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import com.model.HibernateUtil;
 import com.model.Qcm;
@@ -11,12 +12,16 @@ import com.service.interfaces.dao.IQcmDao;
 
 public class QcmDaoImp implements IQcmDao {
 	
-	private Session _Session;
-		
+private SessionFactory sessionFactory;	
+	
 	@SuppressWarnings("unused")
-	private Session get_Session() {
-		return HibernateUtil.currentSession();
+	private SessionFactory getSessionFactory() {
+		return sessionFactory;
 	}
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+		}
 	
 	public void CloseSession()
 	{
@@ -25,32 +30,35 @@ public class QcmDaoImp implements IQcmDao {
 	
 	public void Create(Qcm qcm) {
 		// TODO Auto-generated method stub
-		_Session.persist(qcm);
+		Session s = HibernateUtil.currentSession(sessionFactory);
+		s.save(qcm);
+		s.beginTransaction().commit();
+		s.close();
 	}
 
 	
 	public Qcm GetById(String id) {
 		// TODO Auto-generated method stub
-		return (Qcm) _Session.get(Qcm.class, id);
+		return (Qcm) sessionFactory.getCurrentSession().get(Qcm.class, id);
 	}
 
 	
 	public void Update(Qcm qcm) {
 		// TODO Auto-generated method stub
-		_Session.update(qcm);
+		sessionFactory.getCurrentSession().update(qcm);
 	}
 
 	
 	public void Delete(Qcm qcm) {
 		// TODO Auto-generated method stub
-
+		sessionFactory.getCurrentSession().delete(qcm);
 	}
 
 	
 	public List<Qcm> GetAll() {
 		List<Qcm> objects = null;
         try {
-            Query query = _Session.createQuery("from " + Qcm.class.getName());
+            Query query = sessionFactory.getCurrentSession().createQuery("from " + Qcm.class.getName());
             objects = query.list();
         } catch (Exception e) {
             

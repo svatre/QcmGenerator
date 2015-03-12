@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import com.model.Classe;
 import com.model.HibernateUtil;
@@ -11,12 +12,14 @@ import com.service.interfaces.dao.IClasseDao;
 
 public class ClasseDaoImp implements IClasseDao {
 
-	private Session _Session;
-	
-	@SuppressWarnings("unused")
-	private Session get_Session() {
-		return HibernateUtil.currentSession();
+	private SessionFactory sessionFactory;	
+	private SessionFactory getSessionFactory() {
+		return sessionFactory;
 	}
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+		}
 	
 	public void CloseSession()
 	{
@@ -26,25 +29,28 @@ public class ClasseDaoImp implements IClasseDao {
 	
 	public void Create(Classe classe) {
 		// TODO Auto-generated method stub
-		_Session.persist(classe);
+		Session s = HibernateUtil.currentSession(sessionFactory);
+		s.save(classe);
+		s.beginTransaction().commit();
+		s.close();
 	}
 
 	
 	public Classe GetById(String id) {
 		// TODO Auto-generated method stub
-		return (Classe) _Session.get(Classe.class, id);
+		return (Classe) sessionFactory.getCurrentSession().get(Classe.class, id);
 	}
 
 	
 	public void Update(Classe classe) {
 		// TODO Auto-generated method stub
-		_Session.update(classe);
+		sessionFactory.getCurrentSession().update(classe);
 	}
 
 	
 	public void Delete(Classe classe) {
 		// TODO Auto-generated method stub
-		_Session.delete(classe);
+		sessionFactory.getCurrentSession().delete(classe);
 	}
 
 	
@@ -52,7 +58,7 @@ public class ClasseDaoImp implements IClasseDao {
 		// TODO Auto-generated method stub
 		 List<Classe> objects = null;
 	        try {
-	            Query query = _Session.createQuery("from " + Classe.class.getName());
+	            Query query = sessionFactory.getCurrentSession().createQuery("from " + Classe.class.getName());
 	            objects = query.list();
 	        } catch (Exception e) {
 	            

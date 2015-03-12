@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import com.model.EtudiantQcm;
 import com.model.HibernateUtil;
@@ -12,12 +13,16 @@ import com.service.interfaces.dao.IMatiereDao;
 
 public class MatiereDaoImp implements IMatiereDao {
 
-	private Session _Session;
+private SessionFactory sessionFactory;	
 	
 	@SuppressWarnings("unused")
-	private Session get_Session() {
-		return HibernateUtil.currentSession();
+	private SessionFactory getSessionFactory() {
+		return sessionFactory;
 	}
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+		}
 	
 	public void CloseSession()
 	{
@@ -26,32 +31,35 @@ public class MatiereDaoImp implements IMatiereDao {
 	
 	public void Create(Matiere matiere) {
 		// TODO Auto-generated method stub
-		_Session.persist(matiere);
+		Session s = HibernateUtil.currentSession(sessionFactory);
+		s.save(matiere);
+		s.beginTransaction().commit();
+		s.close();
 	}
 
 	
 	public Matiere GetById(String id) {
 		// TODO Auto-generated method stub
-		return (Matiere) _Session.get(Matiere.class, id);
+		return (Matiere) sessionFactory.getCurrentSession().get(Matiere.class, id);
 	}
 
 	
 	public void Update(Matiere matiere) {
 		// TODO Auto-generated method stub
-		_Session.update(matiere);
+		sessionFactory.getCurrentSession().update(matiere);
 	}
 
 	
 	public void Delete(Matiere matiere) {
 		// TODO Auto-generated method stub
-		_Session.delete(matiere);
+		sessionFactory.getCurrentSession().delete(matiere);
 	}
 
 	
 	public List<Matiere> GetAll() {
 		List<Matiere> objects = null;
         try {
-            Query query = _Session.createQuery("from " + Matiere.class.getName());
+            Query query = sessionFactory.getCurrentSession().createQuery("from " + Matiere.class.getName());
             objects = query.list();
         } catch (Exception e) {
             

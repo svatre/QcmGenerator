@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import com.model.HibernateUtil;
 import com.model.Professeur;
@@ -11,13 +12,16 @@ import com.service.interfaces.dao.IProfesseurDao;
 
 public class ProfesseurDaoImp implements IProfesseurDao {
 
-	private Session _Session;	
+	private SessionFactory sessionFactory;	
 	
 	@SuppressWarnings("unused")
-	private Session get_Session() {
-		return HibernateUtil.currentSession();
+	private SessionFactory getSessionFactory() {
+		return sessionFactory;
 	}
 	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+		}
 	public void CloseSession()
 	{
 		HibernateUtil.closeSession();
@@ -25,32 +29,35 @@ public class ProfesseurDaoImp implements IProfesseurDao {
 	
 	public void Create(Professeur prof) {
 		// TODO Auto-generated method stub
-		_Session.persist(prof);
+		Session s = HibernateUtil.currentSession(sessionFactory);
+		s.save(prof);
+		s.beginTransaction().commit();
+		s.close();
 	}
 
 	
 	public Professeur GetById(String id) {
 		// TODO Auto-generated method stub
-		return (Professeur) _Session.get(Professeur.class, id);
+		return (Professeur) sessionFactory.getCurrentSession().get(Professeur.class, id);
 	}
 
 	
 	public void Update(Professeur prof) {
 		// TODO Auto-generated method stub
-		_Session.update(prof);
+		sessionFactory.getCurrentSession().update(prof);
 	}
 
 	
 	public void Delete(Professeur prof) {
 		// TODO Auto-generated method stub
-		_Session.delete(prof);
+		sessionFactory.getCurrentSession().delete(prof);
 	}
 
 	
 	public List<Professeur> GetAll() {
 		List<Professeur> objects = null;
         try {
-            Query query = _Session.createQuery("from " + Professeur.class.getName());
+            Query query = sessionFactory.getCurrentSession().createQuery("from " + Professeur.class.getName());
             objects = query.list();
         } catch (Exception e) {
             

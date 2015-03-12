@@ -18,6 +18,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Expression;
 import org.hibernate.criterion.Order;
+import org.hibernate.exception.*;
 import org.hibernate.type.Type;
 
 /**

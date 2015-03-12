@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-mapping package="com.model">
+	<class name="Question" table="question">
+		<id
+			column="id_question"
+			name="IdQuestion"
+			type="integer"
+		>
+			<generator class="increment" />
+		</id>
+		<property
+			column="date_creation"
+			length="19"
+			name="DateCreation"
+			not-null="true"
+			type="timestamp"
+		 />
+		<property
+			column="intitule"
+			length="255"
+			name="Intitule"
+			not-null="true"
+			type="string"
+		 />
+
+		<many-to-one
+			class="Theme"
+			name="IdTheme"
+			not-null="true"
+		>
+			<column name="id_theme" />
+		</many-to-one>
+		<many-to-one
+			class="Professeur"
+			name="IdProfesseur"
+			not-null="true"
+		>
+			<column name="id_professeur" />
+		</many-to-one>
+		<set inverse="true" name="QcmQuestionSet">
+			<key column="id_question" />
+			<one-to-many class="QcmQuestion" />
+		</set>
+		<set inverse="true" name="ReponseSet">
+			<key column="id_question" />
+			<one-to-many class="Reponse" />
+		</set>
+	</class>
+</hibernate-mapping>

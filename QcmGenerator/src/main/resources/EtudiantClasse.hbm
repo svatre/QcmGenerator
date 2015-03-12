@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.model">
+	<class name="EtudiantClasse" table="etudiant_classe">
+		<id
+			column="id_etudiantclasse"
+			name="IdEtudiantclasse"
+			type="integer"
+		>
+			<generator class="increment" />
+		</id>
+		<many-to-one
+			class="Etudiant"
+			name="IdEtudiant"
+			not-null="true"
+		>
+			<column name="id_etudiant" />
+		</many-to-one>
+		<many-to-one
+			class="Classe"
+			name="IdClasse"
+			not-null="true"
+		>
+			<column name="id_classe" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import com.model.HibernateUtil;
 import com.model.QcmQuestion;
@@ -11,12 +12,16 @@ import com.service.interfaces.dao.IQcmQuestionDao;
 
 public class QcmQuestionDaoImp implements IQcmQuestionDao {
 
-	private Session _Session;	
+	private SessionFactory sessionFactory;	
 	
 	@SuppressWarnings("unused")
-	private Session get_Session() {
-		return HibernateUtil.currentSession();
+	private SessionFactory getSessionFactory() {
+		return sessionFactory;
 	}
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+		}
 	
 	public void CloseSession()
 	{
@@ -26,32 +31,35 @@ public class QcmQuestionDaoImp implements IQcmQuestionDao {
 	
 	public void Create(QcmQuestion qcmQuestion) {
 		// TODO Auto-generated method stub
-		_Session.persist(qcmQuestion);
+		Session s = HibernateUtil.currentSession(sessionFactory);
+		s.save(qcmQuestion);
+		s.beginTransaction().commit();
+		s.close();
 	}
 
 	
 	public QcmQuestion GetById(String id) {
 		// TODO Auto-generated method stub
-		return (QcmQuestion) _Session.get(QcmQuestion.class, id);
+		return (QcmQuestion)sessionFactory.getCurrentSession().get(QcmQuestion.class, id);
 	}
 
 	
 	public void Update(QcmQuestion qcmQuestion) {
 		// TODO Auto-generated method stub
-		_Session.update(qcmQuestion);
+		sessionFactory.getCurrentSession().update(qcmQuestion);
 	}
 
 	
 	public void Delete(QcmQuestion qcmQuestion) {
 		// TODO Auto-generated method stub
-		_Session.delete(qcmQuestion);
+		sessionFactory.getCurrentSession().delete(qcmQuestion);
 	}
 
 	
 	public List<QcmQuestion> GetAll() {
 		List<QcmQuestion> objects = null;
         try {
-            Query query = _Session.createQuery("from " + QcmQuestion.class.getName());
+            Query query = sessionFactory.getCurrentSession().createQuery("from " + QcmQuestion.class.getName());
             objects = query.list();
         } catch (Exception e) {
             

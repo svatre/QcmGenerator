@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC
 	"-//Hibernate/Hibernate Mapping DTD//EN"
-	"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
 
-<hibernate-mapping package="model">
-	<class name="Etudiant" table="etudiant">
+<hibernate-mapping package="com.model">
+	<class name="Professeur" table="professeur">
 		<id
-			column="id_etudiant"
-			name="IdEtudiant"
+			column="id_professeur"
+			name="IdProfesseur"
 			type="integer"
 		>
 			<generator class="increment" />
@@ -34,13 +34,17 @@
 		>
 			<column name="id_utilisateur" />
 		</many-to-one>
-		<set inverse="true" name="EtudiantQcmSet">
-			<key column="id_etudiant" />
-			<one-to-many class="EtudiantQcm" />
+		<set inverse="true" name="QuestionSet">
+			<key column="id_professeur" />
+			<one-to-many class="Question" />
 		</set>
-		<set inverse="true" name="EtudiantClasseSet">
-			<key column="id_etudiant" />
-			<one-to-many class="EtudiantClasse" />
+		<set inverse="true" name="ProfesseurMatiereSet">
+			<key column="id_professeur" />
+			<one-to-many class="ProfesseurMatiere" />
+		</set>
+		<set inverse="true" name="QcmSet">
+			<key column="id_professeur" />
+			<one-to-many class="Qcm" />
 		</set>
 	</class>
 </hibernate-mapping>

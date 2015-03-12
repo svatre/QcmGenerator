@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC
-	"-//Hibernate/Hibernate Mapping DTD//EN"
-	"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
-<hibernate-mapping package="model">
+<hibernate-mapping package="com.model">
 	<class name="QcmQuestion" table="qcm_question">
 		<id
 			column="id_qcmquestion"

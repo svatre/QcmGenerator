@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-mapping package="com.model">
+	<class name="EtudiantQcm" table="etudiant_qcm">
+		<id
+			column="id_etudiantqcm"
+			name="IdEtudiantqcm"
+			type="integer"
+		>
+			<generator class="increment" />
+		</id>
+		<property
+			column="note"
+			length="12"
+			name="Note"
+			not-null="true"
+			type="java.lang.Float"
+		 />
+		<many-to-one
+			class="Qcm"
+			name="IdQcm"
+			not-null="true"
+		>
+			<column name="id_qcm" />
+		</many-to-one>
+		<many-to-one
+			class="Etudiant"
+			name="IdEtudiant"
+			not-null="true"
+		>
+			<column name="id_etudiant" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

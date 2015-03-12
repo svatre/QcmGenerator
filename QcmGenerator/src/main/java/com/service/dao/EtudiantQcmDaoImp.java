@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import com.model.EtudiantQcm;
 import com.model.HibernateUtil;
@@ -11,13 +12,16 @@ import com.service.interfaces.dao.IEtudiantQcmDao;
 
 public class EtudiantQcmDaoImp implements IEtudiantQcmDao {
 
-	private Session _Session;
-	
+private SessionFactory sessionFactory;	
 	
 	@SuppressWarnings("unused")
-	private Session get_Session() {
-		return HibernateUtil.currentSession();
+	private SessionFactory getSessionFactory() {
+		return sessionFactory;
 	}
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+		}
 	
 	public void CloseSession()
 	{
@@ -26,32 +30,35 @@ public class EtudiantQcmDaoImp implements IEtudiantQcmDao {
 	
 	public void Create(EtudiantQcm etudiantQcm) {
 		// TODO Auto-generated method stub
-		_Session.persist(etudiantQcm);
+		Session s = HibernateUtil.currentSession(sessionFactory);
+		s.save(etudiantQcm);
+		s.beginTransaction().commit();
+		s.close();
 	}
 
 	
 	public EtudiantQcm GetById(String id) {
 		// TODO Auto-generated method stub
-		return (EtudiantQcm) _Session.get(EtudiantQcm.class, id);
+		return (EtudiantQcm) sessionFactory.getCurrentSession().get(EtudiantQcm.class, id);
 	}
 
 	
 	public void Update(EtudiantQcm etudiantQcm) {
 		// TODO Auto-generated method stub
-		_Session.update(etudiantQcm);
+		sessionFactory.getCurrentSession().update(etudiantQcm);
 	}
 
 	
 	public void Delete(EtudiantQcm etudiantQcm) {
 		// TODO Auto-generated method stub
-		_Session.delete(etudiantQcm);
+		sessionFactory.getCurrentSession().delete(etudiantQcm);
 	}
 
 	
 	public List<EtudiantQcm> GetAll() {
 		List<EtudiantQcm> objects = null;
         try {
-            Query query = _Session.createQuery("from " + EtudiantQcm.class.getName());
+            Query query = sessionFactory.getCurrentSession().createQuery("from " + EtudiantQcm.class.getName());
             objects = query.list();
         } catch (Exception e) {
             

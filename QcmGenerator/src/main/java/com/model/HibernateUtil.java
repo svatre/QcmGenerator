@@ -1,5 +1,7 @@
 package com.model;
 
+import java.io.File;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,7 +14,9 @@ public class HibernateUtil {
 	static {
 			try {				
 				// Crée la SessionFactory
-				sessionFactory =new Configuration().configure().buildSessionFactory();
+				String filePath = new File("hibernate.cfg.xml").getAbsolutePath();
+				File file = new File(filePath);	
+				sessionFactory =new Configuration().configure(file).buildSessionFactory();
 				} 
 	catch (HibernateException ex) {
 		throw new RuntimeException("Problème de configuration : "+ ex.getMessage(), ex);
@@ -22,6 +26,16 @@ public class HibernateUtil {
 	public static final ThreadLocal session = new ThreadLocal();
 	@SuppressWarnings("unchecked")
 	public static Session currentSession() throws HibernateException {
+		Session s = (Session) session.get();
+		// Ouvre une nouvelle Session, si ce Thread n'en a aucune
+		if (s == null) {
+			s = sessionFactory.openSession();
+			session.set(s);
+		}
+		return s;
+	}
+	
+	public static Session currentSession(SessionFactory sessionFactory) throws HibernateException {
 		Session s = (Session) session.get();
 		// Ouvre une nouvelle Session, si ce Thread n'en a aucune
 		if (s == null) {

@@ -13,7 +13,7 @@ public class App {
 		System.out.println("load context");
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		Utilisateur user = new Utilisateur();
-		user.setIdUtilisateur(1);
+		user.setIdUtilisateur(8);
 		user.setMdp("prof");
 		user.setType("Prof");
 		user.setIdentifiant("Prof");

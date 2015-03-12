@@ -2,7 +2,6 @@ package com.model.base;
 
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
-
 import com.model.dao.AdministrateurDAO;
 
 /**
@@ -25,14 +24,14 @@ public abstract class BaseAdministrateurDAO extends com.model.dao._RootDAO {
 	}
 
 	/**
-	 * model.dao._RootDAO _RootDAO.getReferenceClass()
+	 * com.model.dao._RootDAO _RootDAO.getReferenceClass()
 	 */
 	public Class getReferenceClass () {
 		return com.model.Administrateur.class;
 	}
 	
 	public com.model.Administrateur load(java.lang.Integer key)
-			throws org.hibernate.HibernateException {
+		throws org.hibernate.HibernateException {
 		return (com.model.Administrateur) load(getReferenceClass(), key);
 	}
 

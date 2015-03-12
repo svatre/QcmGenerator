@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.model">
+	<class name="Administrateur" table="administrateur">
+		<id
+			column="id_administrateur"
+			name="IdAdministrateur"
+			type="integer"
+		>
+			<generator class="increment" />
+		</id>
+		<property
+			column="nom"
+			length="255"
+			name="Nom"
+			not-null="true"
+			type="string"
+		 />
+		<many-to-one
+			class="Utilisateur"
+			name="IdUtilisateur"
+			not-null="true"
+		>
+			<column name="id_utilisateur" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

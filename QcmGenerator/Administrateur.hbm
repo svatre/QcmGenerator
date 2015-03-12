@@ -3,7 +3,7 @@
 	"-//Hibernate/Hibernate Mapping DTD//EN"
 	"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
 
-<hibernate-mapping package="model">
+<hibernate-mapping package="com.model">
 	<class name="Administrateur" table="administrateur">
 		<id
 			column="id_administrateur"
