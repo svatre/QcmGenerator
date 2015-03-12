@@ -62,10 +62,16 @@
 </bean>
 
  
+<bean id="utilisateurDao" class="com.service.dao.UtilisateurDaoImp">
+	<property name="sessionFactory" ref="sessionFactory" />
+</bean>
 <bean id="administrateurDao" class="com.service.dao.AdministrateurDaoImp">
 	<property name="sessionFactory" ref="sessionFactory" />
 </bean>
 <bean id="classeDao" class="com.service.dao.ClasseDaoImp">
+	<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+<bean id="etudiantQcmDao" class="com.service.dao.EtudiantQcmDaoImp">
 	<property name="sessionFactory" ref="sessionFactory" />
 </bean>
 <bean id="etudiantDao" class="com.service.dao.EtudiantDaoImp">
@@ -77,7 +83,7 @@
 <bean id="matiereDao" class="com.service.dao.MatiereDaoImp">
 	<property name="sessionFactory" ref="sessionFactory" />
 </bean>
-<bean id="professeurDao" class="com.service.dao.ProfesseurDaoImp">
+<bean id="professeurMetierDao" class="com.service.dao.ProfesseurDaoImp">
 	<property name="sessionFactory" ref="sessionFactory" />
 </bean>
 <bean id="professeurMatiereDao" class="com.service.dao.ProfesseurMatiereDaoImp">
@@ -89,7 +95,7 @@
 <bean id="qcmQuestionDao" class="com.service.dao.QcmQuestionDaoImp">
 	<property name="sessionFactory" ref="sessionFactory" />
 </bean>
-<bean id="questionDao" class="com.service.dao.QuestionDaoImp">
+<bean id="questionMetierDao" class="com.service.dao.QuestionDaoImp">
 	<property name="sessionFactory" ref="sessionFactory" />
 </bean>
 <bean id="reponseDao" class="com.service.dao.ReponseDaoImp">
